@@ -32,5 +32,8 @@ class Polygon {
         for(let i = 0; i< this.edges.length; i++){
             this.edges[i].hankin()
         }
+
+        this.edges[0].findEnd(this.edges[1])
     }
+    
 }

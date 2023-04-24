@@ -27,4 +27,15 @@ class Edge{
         this.h2 = new Hankin(mid,v2)
         
     }
+
+    findEnd(edge){
+        // for(let i = 0; i < edges.length; i++){
+
+        // }
+
+        this.h1.findEnd(edge.h1)
+        this.h1.findEnd(edge.h2)
+        this.h2.findEnd(edge.h2)
+        this.h2.findEnd(edge.h1)
+    }
 }

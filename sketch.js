@@ -1,5 +1,5 @@
 let poly 
-let angle = 45
+let angle = 60
 function setup() {
 	createCanvas(500, 500);
 	// put setup code here
