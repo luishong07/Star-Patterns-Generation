@@ -32,8 +32,16 @@ class Polygon {
         for(let i = 0; i< this.edges.length; i++){
             this.edges[i].hankin()
         }
+        for(let i = 0; i< this.edges.length; i++){
+            for(let j = 0; j < this.edges.length; j++){
+                if(i != 0){
+                    this.edges[i].findEnd(this.edges[j])
+                    
+                }
+            }
+        }
 
-        this.edges[0].findEnd(this.edges[1])
+        // this.edges[0].findEnd(this.edges[1])
     }
     
 }

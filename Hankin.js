@@ -3,23 +3,21 @@ class Hankin {
         this.a = a;
         this.v = v;
         this.b = p5.Vector.add(a, v);
-        this.end
-        this.previousDistance
+        this.end;
+        this.previousDistance;
     }
 
     show() {
+        // console.log(this.end)
         stroke(255);
-        line(this.a.x, this.a.y, this.b.x, this.b.y);
-        ellipse(this.a.x, this.a.y, 10, 10);
-
-        fill("blue");
-        if(this.end){
-            fill('red')
-            ellipse(this.end.x, this.end.y, 10, 10);
-
-
-        }
-        // ellipse(this.b.x+10, this.b.y+10, 10,10)
+        line(this.a.x, this.a.y, this.end.x, this.end.y);
+        //for debugging
+        // fill(255)
+        // ellipse(this.a.x, this.a.y, 10, 10);
+        // if(this.end){
+        //     fill('red')
+        //     ellipse(this.end.x, this.end.y, 10, 10);
+        // }
     }
 
     findEnd(other) {
