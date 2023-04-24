@@ -8,7 +8,7 @@ class Edge {
 
     show() {
         stroke(255);
-        line(this.a.x, this.a.y, this.b.x, this.b.y);
+        // line(this.a.x, this.a.y, this.b.x, this.b.y);
         this.h1.show();
         this.h2.show();
     }
@@ -19,29 +19,25 @@ class Edge {
 
         let v1 = p5.Vector.sub(this.a, mid);
         let v2 = p5.Vector.sub(this.b, mid);
-
-        let offSet1 = mid;
-        let offSet2 = mid;
-
+        let offset1 = mid;
+        let offset2 = mid;
         if (delta > 0) {
             v1.setMag(delta);
             v2.setMag(delta);
-
-            offSet1 = p5.Vector.add(mid, v2);
-            offSet2 = p5.Vector.add(mid, v1);
+            offset1 = p5.Vector.add(mid, v2);
+            offset2 = p5.Vector.add(mid, v1);
         }
-
         v1.normalize();
         v2.normalize();
 
-        v2.rotate(radians(angle));
         v1.rotate(radians(-angle));
+        v2.rotate(radians(angle));
 
-        this.h1 = new Hankin(offSet1, v1);
-        this.h2 = new Hankin(offSet2, v2);
+        this.h1 = new Hankin(offset1, v1);
+        this.h2 = new Hankin(offset2, v2);
     }
 
-    findEnd(edge) {
+    findEnds(edge) {
         this.h1.findEnd(edge.h1);
         this.h1.findEnd(edge.h2);
         this.h2.findEnd(edge.h1);

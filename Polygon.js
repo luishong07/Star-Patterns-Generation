@@ -1,46 +1,43 @@
 class Polygon {
-    constructor(){
-        this.edges =[]
-        this.vertices =[]
+    constructor() {
+        this.edges = [];
+        this.vertices = [];
     }
 
-    addVertex(x,y){
-        let a = createVector(x,y)
-        let total = this.vertices.length
-        if(total>0){
-            let previous = this.vertices[total-1]
-            let edge = new Edge(previous, a)
-            this.edges.push(edge)
+    addVertex(x, y) {
+        let a = createVector(x, y);
+        let total = this.vertices.length;
+        if (total > 0) {
+            let prev = this.vertices[total - 1];
+            let edge = new Edge(prev, a);
+            this.edges.push(edge);
         }
-        this.vertices.push(a)
+        this.vertices.push(a);
     }
 
-    show(){
-        for(let i = 0; i < this.edges.length; i++){
-            this.edges[i].show()
+    show() {
+        for (var i = 0; i < this.edges.length; i++) {
+            this.edges[i].show();
         }
     }
-    close(){
-        let total = this.vertices.length
-        let last = this.vertices[total -1]
-        let first = this.vertices[0]
-        let edge = new Edge(last, first)
-        this.edges.push(edge)
+    close() {
+        let total = this.vertices.length;
+        let last = this.vertices[total - 1];
+        let first = this.vertices[0];
+        let edge = new Edge(last, first);
+        this.edges.push(edge);
     }
-    hankin(){
-        for(let i = 0; i< this.edges.length; i++){
-            this.edges[i].hankin()
+    hankin() {
+        for (var i = 0; i < this.edges.length; i++) {
+            this.edges[i].hankin();
         }
-        for(let i = 0; i< this.edges.length; i++){
-            for(let j = 0; j < this.edges.length; j++){
-                if(j != 0){
-                    this.edges[i].findEnd(this.edges[j])
-                    
+
+        for (var i = 0; i < this.edges.length; i++) {
+            for (var j = 0; j < this.edges.length; j++) {
+                if (i !== j) {
+                    this.edges[i].findEnds(this.edges[j]);
                 }
             }
         }
-
-        // this.edges[0].findEnd(this.edges[1])
     }
-    
 }
