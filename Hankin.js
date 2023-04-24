@@ -4,6 +4,7 @@ class Hankin {
         this.v = v;
         this.b = p5.Vector.add(a, v);
         this.end
+        this.previousDistance
     }
 
     show() {
@@ -41,7 +42,18 @@ class Hankin {
         let y = this.a.y + ub * this.v.y;
 
         if(ua > 0 && ub > 0){
-            this.end = createVector(x,y)
+            let candidate = createVector(x,y)
+            let d1 = p5.Vector.dist(candidate, this.a)
+            let d2 = p5.Vector.dist(candidate, other.a)
+            let d = d1 + d2
+            if(!this.end){
+                this.end = candidate
+                this.previousDistance = d
+            }else if(d < this.previousDistance){
+                this.previousDistance = d
+                this.end = candidate
+            }
+
 
         }
     }

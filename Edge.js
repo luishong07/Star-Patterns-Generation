@@ -35,7 +35,7 @@ class Edge{
 
         this.h1.findEnd(edge.h1)
         this.h1.findEnd(edge.h2)
-        this.h2.findEnd(edge.h2)
         this.h2.findEnd(edge.h1)
+        this.h2.findEnd(edge.h2)
     }
 }
