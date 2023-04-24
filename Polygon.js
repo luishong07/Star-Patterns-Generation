@@ -2,7 +2,6 @@ class Polygon {
     constructor(){
         this.edges =[]
         this.vertices =[]
-
     }
 
     addVertex(x,y){
@@ -34,7 +33,7 @@ class Polygon {
         }
         for(let i = 0; i< this.edges.length; i++){
             for(let j = 0; j < this.edges.length; j++){
-                if(i != 0){
+                if(j != 0){
                     this.edges[i].findEnd(this.edges[j])
                     
                 }
