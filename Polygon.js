@@ -28,4 +28,9 @@ class Polygon {
         let edge = new Edge(last, first)
         this.edges.push(edge)
     }
+    hankin(){
+        for(let i = 0; i< this.edges.length; i++){
+            this.edges[i].hankin()
+        }
+    }
 }
