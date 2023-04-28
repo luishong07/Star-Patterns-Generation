@@ -39,8 +39,8 @@ class Edge {
         //law of sines 
         let interiorAngle = (sides -2)*PI/sides
         let alpha = interiorAngle/2
-        let beta = PI - angle - alpha
-        let hankinLength = (edgeLength * sin(alpha))/sin(angle)
+        let beta = PI - radians(angle) - alpha
+        let hankinLength = (edgeLength * sin(alpha))/sin(beta)
 
         v1.setMag(hankinLength)
         v2.setMag(hankinLength)
