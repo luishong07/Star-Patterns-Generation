@@ -1,7 +1,8 @@
 class Polygon {
-    constructor() {
+    constructor(n) {
         this.edges = [];
         this.vertices = [];
+        this.sides = n
     }
 
     addVertex(x, y) {
@@ -29,15 +30,15 @@ class Polygon {
     }
     hankin() {
         for (var i = 0; i < this.edges.length; i++) {
-            this.edges[i].hankin();
+            this.edges[i].hankin(this.sides);
         }
 
-        for (var i = 0; i < this.edges.length; i++) {
-            for (var j = 0; j < this.edges.length; j++) {
-                if (i !== j) {
-                    this.edges[i].findEnds(this.edges[j]);
-                }
-            }
-        }
+        // for (var i = 0; i < this.edges.length; i++) {
+        //     for (var j = 0; j < this.edges.length; j++) {
+        //         if (i !== j) {
+        //             this.edges[i].findEnds(this.edges[j]);
+        //         }
+        //     }
+        // }
     }
 }

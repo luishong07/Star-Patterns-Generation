@@ -13,12 +13,15 @@ class Edge {
         this.h2.show();
     }
 
-    hankin() {
+    hankin(sides) {
         let mid = p5.Vector.add(this.a, this.b);
         mid.mult(0.5);
 
         let v1 = p5.Vector.sub(this.a, mid);
         let v2 = p5.Vector.sub(this.b, mid);
+
+        let edgeLength = v1.mag()+delta
+
         let offset1 = mid;
         let offset2 = mid;
         if (delta > 0) {
@@ -33,14 +36,24 @@ class Edge {
         v1.rotate(radians(-angle));
         v2.rotate(radians(angle));
 
+        //law of sines 
+        let interiorAngle = (sides -2)*PI/sides
+        let alpha = interiorAngle/2
+        let beta = PI - angle - alpha
+        let hankinLength = (edgeLength * sin(alpha))/sin(angle)
+
+        v1.setMag(hankinLength)
+        v2.setMag(hankinLength)
+
+
         this.h1 = new Hankin(offset1, v1);
         this.h2 = new Hankin(offset2, v2);
     }
 
-    findEnds(edge) {
-        this.h1.findEnd(edge.h1);
-        this.h1.findEnd(edge.h2);
-        this.h2.findEnd(edge.h1);
-        this.h2.findEnd(edge.h2);
-    }
+    // findEnds(edge) {
+    //     this.h1.findEnd(edge.h1);
+    //     this.h1.findEnd(edge.h2);
+    //     this.h2.findEnd(edge.h1);
+    //     this.h2.findEnd(edge.h2);
+    // }
 }
